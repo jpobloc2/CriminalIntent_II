@@ -54,6 +54,13 @@ public class CrimeFragment extends Fragment {
         setHasOptionsMenu(true);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        CrimeLab.get(getActivity())
+                .updateCrime(mCrime);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
