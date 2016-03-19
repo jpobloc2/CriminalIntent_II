@@ -171,6 +171,8 @@ public class CrimeListFragment extends Fragment {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     mCrime.setSolved(isChecked);
+                    CrimeLab.get(getActivity())
+                            .updateCrime(mCrime);
                 }
             });
         }

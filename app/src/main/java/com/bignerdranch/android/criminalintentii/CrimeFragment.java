@@ -142,7 +142,7 @@ public class CrimeFragment extends Fragment {
             mCrime.setDate(date);
             updateDate();
         } else if (requestCode == CONFIRM_DELETE) {
-            CrimeLab.get(getActivity()).removeCrime(mCrime);
+            CrimeLab.get(getActivity()).deleteCrime(mCrime);
             this.getActivity().finish();
         }
     }
