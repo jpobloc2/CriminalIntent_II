@@ -121,12 +121,13 @@ public class CrimeFragment extends Fragment {
         mReportButton = (Button) v.findViewById(R.id.crime_report);
         mReportButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent i = new Intent(Intent.ACTION_SEND);
-                i.setType("text/plain");
-                i.putExtra(Intent.EXTRA_TEXT, getCrimeReport());
-                i.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.crime_report_subject));
-                i = Intent.createChooser(i, getString(R.string.send_report));
-                startActivity(i);
+                ShareCompat.IntentBuilder a = ShareCompat.IntentBuilder.from(getActivity());
+                a.setType("text/plain");
+                a.setText(getCrimeReport());
+                a.setSubject(getString(R.string.crime_report_subject));
+                a.setChooserTitle(getString(R.string.send_report));
+                Intent j = a.createChooserIntent();
+                startActivity(j);
             }
         });
 
